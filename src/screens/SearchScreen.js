@@ -8,7 +8,11 @@ const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
   return (
     <View>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        searchRestaurant={() => console.log('SEARCHING', searchTerm)}
+      />
     </View>
   );
 };
