@@ -8,7 +8,7 @@ export default () => {
   const searchRestaurants = async term => {
     try {
       const res = await yelp.get(
-        `/search?term=${term}&limit=50&location=Manila`,
+        `/search?term=${term}&limit=50&location=New+York`,
       );
       setRestaurants(res.data.businesses);
       setError('');
