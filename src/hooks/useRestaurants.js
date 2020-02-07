@@ -8,7 +8,7 @@ export default () => {
   const searchRestaurants = async term => {
     try {
       const res = await yelp.get(
-        `/search?term=${term}&limit=50&location=New+York`,
+        `/search?term=${term}&limit=50&location=San+Jose`,
       );
       setRestaurants(res.data.businesses);
       setError('');
@@ -23,7 +23,7 @@ export default () => {
   };
 
   useEffect(() => {
-    (async () => await searchRestaurants('Jollibee'))();
+    (async () => await searchRestaurants('caviar'))();
   }, []);
 
   return [restaurants, error, searchRestaurants];

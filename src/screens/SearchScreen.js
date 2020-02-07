@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useRestaurant from '../hooks/useRestaurants';
 import RestaurantList from '../components/RestaurantList';
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  parent: {
+    flex: 1,
+  },
+});
 
 const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,27 +18,29 @@ const SearchScreen = () => {
     restaurants.filter(resto => resto.price === price);
 
   return (
-    <View>
+    <View style={styles.parent}>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onTermSubmit={async () => await searchRestaurants(searchTerm)}
       />
       {restaurants.length > 0 && (
-        <View>
+        <View style={styles.parent}>
           <Text>WE have found {restaurants.length} restaurants</Text>
-          <RestaurantList
-            restaurants={filterByPrice('$')}
-            title="Cost Effective"
-          />
-          <RestaurantList
-            restaurants={filterByPrice('$$')}
-            title="Bit Pricier"
-          />
-          <RestaurantList
-            restaurants={filterByPrice('$$$')}
-            title="Big Spender"
-          />
+          <ScrollView>
+            <RestaurantList
+              restaurants={filterByPrice('$')}
+              title="Cost Effective"
+            />
+            <RestaurantList
+              restaurants={filterByPrice('$$')}
+              title="Bit Pricier"
+            />
+            <RestaurantList
+              restaurants={filterByPrice('$$$')}
+              title="Big Spender"
+            />
+          </ScrollView>
         </View>
       )}
       {error !== '' && <Text>{error}</Text>}
