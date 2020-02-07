@@ -18,15 +18,14 @@ const SearchScreen = () => {
     restaurants.filter(resto => resto.price === price);
 
   return (
-    <View style={styles.parent}>
+    <>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         onTermSubmit={async () => await searchRestaurants(searchTerm)}
       />
       {restaurants.length > 0 && (
-        <View style={styles.parent}>
-          <Text>WE have found {restaurants.length} restaurants</Text>
+        <>
           <ScrollView>
             <RestaurantList
               restaurants={filterByPrice('$')}
@@ -41,10 +40,10 @@ const SearchScreen = () => {
               title="Big Spender"
             />
           </ScrollView>
-        </View>
+        </>
       )}
       {error !== '' && <Text>{error}</Text>}
-    </View>
+    </>
   );
 };
 
