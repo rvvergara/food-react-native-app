@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SearchBar = ({searchTerm, setSearchTerm, searchRestaurant}) => {
+const SearchBar = ({searchTerm, setSearchTerm, onTermSubmit}) => {
   return (
     <View style={styles.parentContainer}>
       <Icon name="search" style={styles.searchIcon} />
@@ -33,7 +33,7 @@ const SearchBar = ({searchTerm, setSearchTerm, searchRestaurant}) => {
         placeholder="Search"
         autoCapitalize="none"
         autoCorrect={false}
-        onEndEditing={searchRestaurant}
+        onEndEditing={onTermSubmit}
       />
     </View>
   );
