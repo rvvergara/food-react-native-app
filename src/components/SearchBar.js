@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 const styles = StyleSheet.create({
   parentContainer: {
@@ -18,6 +19,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   return (
     <View style={styles.parentContainer}>
+      <Icon name="search" size={30} />
       <TextInput
         style={styles.searchInput}
         value={searchTerm}
