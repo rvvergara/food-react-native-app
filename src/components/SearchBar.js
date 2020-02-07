@@ -6,12 +6,19 @@ const styles = StyleSheet.create({
   parentContainer: {
     backgroundColor: '#f0eeee',
     height: 50,
-    margin: 10,
+    marginHorizontal: 15,
+    marginTop: 10,
+    borderRadius: 5,
+    flexDirection: 'row',
   },
   searchInput: {
-    borderWidth: 1,
-    borderColor: '#f0eeee',
-    borderRadius: 10,
+    fontSize: 18,
+    flex: 1,
+  },
+  searchIcon: {
+    fontSize: 35,
+    alignSelf: 'center',
+    marginHorizontal: 15,
   },
 });
 
@@ -19,7 +26,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   return (
     <View style={styles.parentContainer}>
-      <Icon name="search" size={30} />
+      <Icon name="search" style={styles.searchIcon} />
       <TextInput
         style={styles.searchInput}
         value={searchTerm}
