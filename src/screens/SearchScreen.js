@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SearchScreen = ({navigation}) => {
+const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [restaurants, error, searchRestaurants] = useRestaurant();
 
@@ -30,17 +30,14 @@ const SearchScreen = ({navigation}) => {
             <RestaurantList
               restaurants={filterByPrice('$')}
               title="Cost Effective"
-              navigation={navigation}
             />
             <RestaurantList
               restaurants={filterByPrice('$$')}
               title="Bit Pricier"
-              navigation={navigation}
             />
             <RestaurantList
               restaurants={filterByPrice('$$$')}
               title="Big Spender"
-              navigation={navigation}
             />
           </ScrollView>
         </>

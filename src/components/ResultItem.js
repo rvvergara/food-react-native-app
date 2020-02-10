@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {withNavigation} from 'react-navigation';
 
 const styles = StyleSheet.create({
   parent: {
@@ -16,17 +17,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const ResultItem = ({restaurant}) => {
+const ResultItem = ({restaurant, navigation}) => {
   const {image_url, name, rating, review_count} = restaurant;
   return (
-    <View style={styles.parent}>
+    <TouchableOpacity
+      style={styles.parent}
+      onPress={() => navigation.navigate('Restaurant', {id: restaurant.id})}>
       <Image source={{uri: image_url}} style={styles.image} />
       <Text style={styles.name}>{name}</Text>
       <Text>
         {rating} Stars, {review_count} reviews
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-export default ResultItem;
+export default withNavigation(ResultItem);
