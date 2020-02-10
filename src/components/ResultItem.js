@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
 
 const ResultItem = ({restaurant, navigation}) => {
   const {image_url, name, rating, review_count} = restaurant;
+
   return (
     <TouchableOpacity
       style={styles.parent}
