@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import ResultItem from './ResultItem';
 
 const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RestaurantList = ({restaurants, title}) => (
+const RestaurantList = ({restaurants, title, navigation}) => (
   <View style={styles.parent}>
     {restaurants.length > 0 && <Text style={styles.title}>{title}</Text>}
     <FlatList
@@ -22,7 +22,11 @@ const RestaurantList = ({restaurants, title}) => (
       showsHorizontalScrollIndicator={false}
       data={restaurants}
       keyExtractor={resto => resto.id}
-      renderItem={({item}) => <ResultItem restaurant={item} />}
+      renderItem={({item}) => (
+        <TouchableOpacity onPress={() => navigation.navigate('Restaurant')}>
+          <ResultItem restaurant={item} />
+        </TouchableOpacity>
+      )}
     />
   </View>
 );
