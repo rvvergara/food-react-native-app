@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import Restaurant from './Restaurant';
+import ResultItem from './ResultItem';
 
 const styles = StyleSheet.create({
   parent: {
@@ -22,7 +22,7 @@ const RestaurantList = ({restaurants, title}) => (
       showsHorizontalScrollIndicator={false}
       data={restaurants}
       keyExtractor={resto => resto.id}
-      renderItem={({item}) => <Restaurant restaurant={item} />}
+      renderItem={({item}) => <ResultItem restaurant={item} />}
     />
   </View>
 );

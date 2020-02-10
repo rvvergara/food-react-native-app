@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 const styles = StyleSheet.create({
   parent: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Restaurant = ({restaurant}) => {
+const ResultItem = ({restaurant}) => {
   const {image_url, name, rating, review_count} = restaurant;
   return (
     <View style={styles.parent}>
@@ -29,4 +29,4 @@ const Restaurant = ({restaurant}) => {
   );
 };
 
-export default Restaurant;
+export default ResultItem;
