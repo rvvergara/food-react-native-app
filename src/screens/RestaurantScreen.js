@@ -1,18 +1,20 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import useSingleRestaurant from '../hooks/useSingleRestaurant';
+import Restaurant from '../components/Restaurant';
 
 const styles = StyleSheet.create({});
 
 const RestaurantScreen = ({navigation}) => {
   const id = navigation.getParam('id');
   const {restaurant, error} = useSingleRestaurant(id);
-
   return (
     <View>
-      <Text>This is the details for {restaurant.name}</Text>
-      {error ? <Text>{error}</Text> : null}
-      <Image source={{uri: restaurant.image_url}} width={250} height={100} />
+      {restaurant ? (
+        <Restaurant restaurant={restaurant} />
+      ) : (
+        <Text>{error}</Text>
+      )}
     </View>
   );
 };

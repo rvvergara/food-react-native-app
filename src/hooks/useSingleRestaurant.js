@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import yelp from '../api/yelp';
 
 export default initialId => {
-  const [restaurant, setRestaurant] = useState({});
+  const [restaurant, setRestaurant] = useState(null);
   const [error, setError] = useState('');
 
   const searchSingleRestaurant = async id => {
@@ -12,7 +12,7 @@ export default initialId => {
       setError('');
     } catch (err) {
       setError(err.response.data.error.description);
-      setRestaurant({});
+      setRestaurant(null);
     }
   };
 
